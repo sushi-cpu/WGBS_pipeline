@@ -4,3 +4,6 @@
 .DS_Store
 .nextflow
 .nextflow.log*
+scripts/.DS_Store
+scripts/.nextflow
+scripts/.nextflow.log*
