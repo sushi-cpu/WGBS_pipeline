@@ -1,0 +1,39 @@
+Jul-19 14:29:00.166 [main] DEBUG nextflow.cli.Launcher - $> nextflow run wbgs.nf
+Jul-19 14:29:00.212 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 21.04.1
+Jul-19 14:29:00.225 [main] INFO  nextflow.cli.CmdRun - Launching `wbgs.nf` [wise_snyder] - revision: 678ab6628c
+Jul-19 14:29:00.265 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; plugins-dir=/Users/sushant/.nextflow/plugins
+Jul-19 14:29:00.266 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Jul-19 14:29:00.267 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins local root: .nextflow/plr/empty
+Jul-19 14:29:00.271 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jul-19 14:29:00.271 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jul-19 14:29:00.273 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Jul-19 14:29:00.278 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jul-19 14:29:00.306 [main] DEBUG nextflow.Session - Session uuid: 6e452530-88c8-43b9-a193-771570f3e31f
+Jul-19 14:29:00.306 [main] DEBUG nextflow.Session - Run name: wise_snyder
+Jul-19 14:29:00.307 [main] DEBUG nextflow.Session - Executor pool size: 8
+Jul-19 14:29:00.334 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 21.04.1 build 5556
+  Created: 14-05-2021 15:20 UTC (20:50 IDT)
+  System: Mac OS X 15.5
+  Runtime: Groovy 3.0.7 on OpenJDK 64-Bit Server VM 11.0.27+6-LTS
+  Encoding: UTF-8 (UTF-8)
+  Process: 6360@Sushants-MacBook-Air.local [127.0.0.1]
+  CPUs: 8 - Mem: 8 GB (87.2 MB) - Swap: 2 GB (929.4 MB)
+Jul-19 14:29:00.340 [main] DEBUG nextflow.Session - Work-dir: /Users/sushant/Desktop/WGBS_pipeline/scripts/work [Mac OS X]
+Jul-19 14:29:00.340 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /Users/sushant/Desktop/WGBS_pipeline/scripts/bin
+Jul-19 14:29:00.347 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Jul-19 14:29:00.353 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jul-19 14:29:00.405 [main] DEBUG nextflow.Session - Session start invoked
+Jul-19 14:29:00.690 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jul-19 14:29:00.697 [main] DEBUG nextflow.Session - Workflow process names [dsl1]: 
+Jul-19 14:29:00.704 [main] INFO  nextflow.script.BaseScript - Base Directory: /Users/sushant/Desktop/WGBS_pipeline
+Jul-19 14:29:00.704 [main] INFO  nextflow.script.BaseScript - Data Directory: /Users/sushant/Desktop/WGBS_pipeline/data
+Jul-19 14:29:00.704 [main] INFO  nextflow.script.BaseScript - Genome Directory: /Users/sushant/Desktop/WGBS_pipeline/genome
+Jul-19 14:29:00.704 [main] INFO  nextflow.script.BaseScript - Results Directory: /Users/sushant/Desktop/WGBS_pipeline/results
+Jul-19 14:29:00.705 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Jul-19 14:29:00.705 [main] DEBUG nextflow.Session - Session await
+Jul-19 14:29:00.705 [main] DEBUG nextflow.Session - Session await > all process finished
+Jul-19 14:29:00.705 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jul-19 14:29:00.712 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
+Jul-19 14:29:00.828 [main] DEBUG nextflow.CacheDB - Closing CacheDB done
+Jul-19 14:29:00.835 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
