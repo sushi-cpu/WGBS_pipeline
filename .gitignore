@@ -7,3 +7,4 @@
 scripts/.DS_Store
 scripts/.nextflow
 scripts/.nextflow.log*
+setup.sh
