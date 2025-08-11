@@ -1,12 +1,11 @@
-# WGBS / MeDIP-seq Pipeline
+# Whole Genome Bisulphite Sequencing Pipelines
 
-A modular **Whole Genome Bisulfite Sequencing (WGBS)** analysis pipeline implemented in **Bash**.  
-Supports automated quality control, trimming, alignment, deduplication, and methylation extraction.  
-The pipeline is designed to be **reusable, configurable, and SLURM-compatible**
+This repository contains bash and nextflow scripts for Whole Genome Bisulphite Sequencing (WGBS)
+Analysis pipeline. 
 
 ---
 
-## Features
+## Features of wgbs.sh
 
 ### 1. Flexible Pipeline Modes
 - **WGBS Mode**: Processes WGBS data with alignment, deduplication, and methylation extraction.
@@ -123,7 +122,8 @@ WGBS_pipeline/
 │
 ├── script/                   # Contains the WGBS pipeline script
 │   └── wgbs.sh
-│
+│   └── wgbs.nf
+|
 └── README.md                 # Documentation
 ```
 
@@ -165,6 +165,89 @@ Options:
 ```
 ```bash
 ./wgbs.sh --medip #To trigger MeDIP-seq pipeline
+```
+
+
+## Features of wgbs.nf
+
+- **Fully Modular Nextflow DSL2 Pipeline**  
+  Designed for Whole Genome Bisulfite Sequencing (WGBS) analysis, implemented using **Nextflow DSL2** for reproducibility, scalability, and portability.
+
+- **Automated Genome Preparation**  
+  Automatically detects if the Bismark genome index already exists, skipping unnecessary re-generation.
+
+- **Raw Read Quality Control (FastQC)**  
+  Generates detailed QC reports for all raw FASTQ files before processing.
+
+- **Read Trimming with Cutadapt**  
+  Removes adapters, trims low-quality bases, and filters short reads based on configurable parameters:
+  - `--adapter` sequence
+  - `--quality` cutoff
+  - `--minimum-length` filtering  
+  Logs are saved for full reproducibility.
+
+- **Post-Trim Quality Control**  
+  Runs FastQC again on trimmed reads to ensure read quality improvement.
+
+- **Bismark Alignment**  
+  Aligns paired-end bisulfite reads against the prepared genome:
+  - Multi-core support
+  - Automatic BAM file renaming
+  - Detailed alignment reports
+
+- **Deduplication**  
+  Removes PCR duplicates using `deduplicate_bismark` and outputs clean BAM files for downstream analysis.
+
+- **Methylation Extraction**  
+  Produces methylation reports in multiple formats:
+  - Cytosine reports
+  - CpG reports
+  - BedGraph and coverage files
+  - Splitting and M-bias reports
+
+- **Customizable Parameters**  
+  Modify adapters, quality thresholds, minimum length, threads, and genome path directly in the `nextflow.config` or via CLI.
+
+- **Organized Output Structure**  
+  Results are neatly arranged in per-sample folders:
+```
+results/
+├── SAMPLE_ID/
+    ├── 01_QC_reports
+    ├── 02_trimmed
+    ├── 03_trimmed_QC_reports
+    ├── 04_aligned
+    ├── 05_deduplicated
+    └── 06_methylation
+```
+I have uploaded the sample output files in this repository under "nextflow results" folder 
+
+
+### Software
+Make sure the following tools are installed and accessible in your `$PATH` before running the pipeline:
+
+- [Nextflow](https://www.nextflow.io/) (>= 22.10.0, DSL2 enabled)
+- [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) (>= 0.11.9)
+- [Cutadapt](https://cutadapt.readthedocs.io/) (>= 4.0)
+- [Bismark](https://www.bioinformatics.babraham.ac.uk/projects/bismark/) (>= 0.24.0)  
+  Requires either **Bowtie2** or **HISAT2** (Bowtie2 recommended: >= 2.4.5)
+- [Samtools](http://www.htslib.org/) (>= 1.15)
+
+### Hardware
+- Minimum 4 CPU cores (more recommended for faster processing)
+- Minimum 8 GB RAM (per sample for alignment)
+- Sufficient disk space (WGBS data is large — plan for at least 2× the size of your raw FASTQ files)
+
+### Genome Data
+- A reference genome in FASTA format placed in the `genome/` directory
+- The genome will be indexed by `bismark_genome_preparation` if not already prepared
+
+
+### Usage 
+It requires the same folder structure as wgbs.sh
+
+```bash
+nexflow run wgbs.nf
 ```
 
 ## 📜 Citation
