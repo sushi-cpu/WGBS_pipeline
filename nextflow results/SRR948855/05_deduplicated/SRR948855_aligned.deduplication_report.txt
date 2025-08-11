@@ -1,0 +1,7 @@
+
+Total number of alignments analysed in SRR948855_aligned.bam:	2142
+Total number duplicated alignments removed:	4 (0.19%)
+Duplicated alignments were found at:	4 different position(s)
+
+Total count of deduplicated leftover sequences: 2138 (99.81% of total)
+
